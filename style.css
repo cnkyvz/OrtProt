@@ -1,0 +1,733 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Eğer tüm cihazlarda sabit kalmasını istiyorsanız */
+    background-image: linear-gradient(
+    90deg,
+    hsl(0deg 97% 59%) 0%,
+    hsl(360deg 83% 55%) 11%,
+    hsl(360deg 71% 51%) 22%,
+    hsl(359deg 67% 48%) 33%,
+    hsl(359deg 66% 44%) 44%,
+    hsl(359deg 65% 40%) 56%,
+    hsl(359deg 64% 37%) 67%,
+    hsl(360deg 63% 33%) 78%,
+    hsl(360deg 62% 30%) 89%,
+    hsl(0deg 60% 26%) 100%
+);
+}
+
+.body-container img {
+    height: auto;
+    display: block;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#map { 
+    height: 410px; 
+    margin-left: 10%;
+    width: 80%;
+    border: 2px solid #da6662; /* Sınır rengi ve kalınlığı */
+    border-radius: 200px; /* Köşe yuvarlama */
+}
+        .select-container {
+            display: flex;
+            justify-content: center;
+        }
+        #selectCity {
+            margin-left: 45%;
+            margin-top: 1%;
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            font-size: 16px;
+        }
+
+header {
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3); /* Gölge efekti için */
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1%;
+    border-radius: 15%;
+    background-image: linear-gradient(
+    90deg,
+    hsl(0deg 97% 59%) 0%,
+    hsl(360deg 83% 55%) 11%,
+    hsl(360deg 71% 51%) 22%,
+    hsl(359deg 67% 48%) 33%,
+    hsl(359deg 66% 44%) 44%,
+    hsl(359deg 65% 40%) 56%,
+    hsl(359deg 64% 37%) 67%,
+    hsl(360deg 63% 33%) 78%,
+    hsl(360deg 62% 30%) 89%,
+    hsl(0deg 60% 26%) 100%
+);
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-main img {
+    margin-top: 1%;
+    margin-left: 3%;
+    width: 10%; /* İstediğiniz boyuta göre ayarlayabilirsiniz */
+    height: 5%; /* İstediğiniz boyuta göre ayarlayabilirsiniz */
+    margin-right: 10px; /* Yazı ile arasına boşluk bırakmak için */
+}
+
+.nav-main, .nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-main a, .nav-links a {
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.nav-main a:hover, .nav-links a:hover {
+    background: transparent; /* Arka planı transparan yap */
+    color: #ccc; /* Yazı rengini gri yap */
+}
+
+body.sanau h2,
+body.info-page h2,
+body.login-page h2,
+body.register-page h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+label, input, textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+button:hover {
+    background: #2490EB;
+}
+
+body.info-page, body.login-page, body.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+body.info-page form textarea,
+body.login-page form input,
+body.register-page form input {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+body.index-page .article-2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    background-color:transparent;
+}
+body.index-page .article-2 .contentAna h1{
+    color:rgb(244, 239, 239);
+}
+body.index-page .article-2 .contentAna p{
+    color: #d1b2b2;
+}
+
+body.index-page .contentAna {
+    max-width: 50%;
+}
+
+body.index-page .contentAna h1 {
+    margin-top: 30%;
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+body.index-page .contentAna p {
+    margin-top: 15%;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+body.index-page .article-3 .contenAna2 {
+    max-width: 50% !important;
+    margin: auto !important;
+    padding: 20px !important;
+}
+
+body.index-page .article-3 .contenAna2 h1 {
+    color:rgb(244, 239, 239);
+    margin-top: 50%;
+    font-size: 28px !important;
+    margin-bottom: 20px !important;
+}
+
+body.index-page .article-3 .contenAna2 p {
+    color: #d1b2b2;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
+}
+
+
+body.index-page .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-image: linear-gradient(to right, #ffffff, #f0f0f0, #e1e1e1, #d2d2d2, #c3c3c3);
+    color: #a62525;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+body.index-page .video-btn {
+    background-image: linear-gradient(to right, #ffffff, #f0f0f0, #e1e1e1, #d2d2d2, #c3c3c3);
+}
+
+body.index-page .imageAna {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+body.index-page .imageAna img {
+    max-width: 200px;
+    margin-top: 15%;
+    margin-left: 70%;
+    border-radius: 10px;
+    position: absolute;
+    height: 350px;
+    top: 0;
+    left: 0;
+    transition: all 1s ease;
+    opacity: 0;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+body.index-page .imageAna img.active {
+    opacity: 1;
+    filter: blur(0);
+    z-index: 3;
+}
+
+body.index-page .imageAna img.left {
+    left: -30%;
+    z-index: 2;
+}
+
+
+.kart-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: transparent; /* Kartların arka plan rengi */
+}
+
+body.index-page {
+    background-color: #fff; /* Sayfa arka planını beyaz yapar */
+}
+
+#map {
+    height: 410px;
+    background-color: #ffffff; /* Haritanın arka plan rengi */
+}
+
+
+.kart {
+    margin-left: 3%;
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.kart-on,
+.kart-arka {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.8s;
+    border-radius: 15px;
+}
+
+.kart-on {
+    background-color: hsla(0, 0%, 0%, 0.845);
+    transform: rotateY(0deg);
+}
+
+.kart-arka {
+    transform: rotateY(180deg);
+    background-color: hsla(0, 0%, 0%, 0.845);
+    color: #e6e6e6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.kart:hover .kart-on {
+    transform: rotateY(-180deg);
+}
+
+.kart:hover .kart-arka {
+    transform: rotateY(0deg);
+}
+
+.kart-on img {
+    width: 90%;
+    height: 90%;
+    margin-top: 6%;
+    margin-left: 6%;
+    object-fit: cover;
+}
+
+.kart-yazi {
+    text-align: center;
+}
+
+.kart-yazi h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.kart-yazi p {
+    font-size: 16px;
+}
+
+/*Şifre Göz Açma Kapama*/
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input[type="password"] {
+    padding-right: 5%; /* Göz simgesi için yer açar */
+}
+
+.password-container img {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    width: 20px; /* Göz simgesinin genişliği */
+    height: 20px; /* Göz simgesinin yüksekliği */
+}
+
+/* Modal (Arkaplan) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Z-index değerini artırdık */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+/* Modal İçerik */
+.modal-content {
+    background-color: transparent;
+    margin: 5% auto; /* Üstten %5 ve ortadan %10 mesafe */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 6%;
+    width: 80%; /* Genişlik %80 */
+}
+
+/* Kapat Butonu */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.contact-info {
+    text-align: center; /* Metinleri merkez hizalama */
+    margin-top: 20%; /* Yukarıdan 20 piksel boşluk */
+}
+
+.contact-info h1 {
+    color: #2864a8; /* Başlık metninin rengi */
+    font-size: 21px; /* Başlık font boyutu */
+}
+
+.contact-info h2 {
+    color: #00428b; /* Alt başlık metninin rengi */
+    font-size: 30px; /* Alt başlık font boyutu */
+}
+
+.contact-info p {
+    color: rgb(25, 80, 141); /* Paragraf metninin rengi */
+    font-size: 17px; /* Paragraf font boyutu */
+    font-style: normal;
+    line-height: 1.6; /* Satır yüksekliği */
+    margin-top: 5px; /* Yukarıdan 10 piksel boşluk */
+}
+
+.typed-container{
+    color: #007BFF;
+    margin-top: -2%;
+    font-size: 70px;
+}
+#protezhakkinda-container {
+    position: relative;
+    display: flex;
+    align-items: center; /* İçerikleri dikeyde ortalar */
+}
+
+/* Yeni eklenen dropdown-container için stil */
+.dropdown-container {
+    display: none;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 104%; /* Varsayılan yukarıdan boşluk */
+    left: 11%; /* Sol tarafa hizala */
+}
+
+.dropdown-container a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-container a:hover {
+    background-color: #ddd;
+}
+
+/* 'show' sınıfı eklendiğinde dropdown-container görünsün */
+.show {
+    display: flex;
+}
+
+/* Navbar button varsayılan olarak gizli */
+.navbar-button {
+    display: none;
+    background: none; /* Butonun arka planını kaldır */
+    border: none; /* Butonun kenarlığını kaldır */
+    padding: 0; /* İç boşlukları kaldır */
+    cursor: pointer; /* İmleci pointer yap */
+    width: 50px; /* Buton genişliğini ayarla */
+    height: 50px; /* Buton yüksekliğini ayarla */
+    box-sizing: border-box; /* Butonun kenarlık ve iç boşluklarını toplam genişliğe dahil et */
+}
+
+.navbar-button img{
+    width: 40%; /* Görüntünün genişliği buton genişliği kadar olsun */
+    height: 60%; /* Yükseklik otomatik olarak ayarlansın */
+}
+/* Navbar container */
+.navbar-container {
+    display: none; /* Başlangıçta gizli */
+    position: fixed; /* Sabit konum */
+    margin-top: 15%;
+    top: 0; /* Üst kenara sabitle */
+    left: 0; /* Sol kenara sabitle */
+    width: 105%; /* Tam genişlik */
+    height: 33%; /* Tam yükseklik */
+    background-color: rgba(0, 0, 0, 0.8); /* Arka plan rengi ve opaklık */
+    z-index: 1000; /* Diğer elemanların üzerinde */
+    overflow-y: auto; /* Dikey kaydırma */
+    transition: opacity 0.3s ease-in-out; /* Geçiş efekti */
+}
+
+/* Navbar container görünür olduğunda */
+.navbar-container.show {
+    display: block; /* Görünür yap */
+    opacity: 1; /* Tam opaklık */
+}
+
+/* Navbar içeriği linkleri */
+.navbar-container a {
+    margin-top: 3%;
+    display: block;
+    color: #fff; /* Link rengi */
+    text-decoration: none; /* Altçizgiyi kaldır */
+    padding: 10px 20px; /* Link içeriğini ortala ve boşluk bırak */
+}
+
+/*Anasayfadaki Noktalar İçin Animasyon*/
+.imageRobotKol {
+    pointer-events: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 65%;
+    margin-right: 5%;
+}
+
+.robotKolImage {
+    width: 100%; /* Görselin boyutunu ayarlayabilirsiniz */
+    transform-origin:top center; /* Dönüş ekseni */
+}
+.noktalarImage {
+    animation: noktaAnimation 5s infinite alternate; /* 5 saniyede bir alternatif olarak hareket eder */
+    width: 30%;
+    height: 30%;
+    margin-left: 7%;
+    position: absolute;
+    bottom: -20%; /* Resmin alt kısmını 20 piksel aşağı taşı */
+    left: 46%; /* Resmin sol kenarını 7% uzaklığa ayarla */
+    z-index: -1;
+}
+
+@keyframes noktaAnimation {
+    0% {
+        transform: translateX(0); /* Başlangıç pozisyonu */
+    }
+    50% {
+        transform: translateX(10px); /* Sağa doğru 10 piksel hareket */
+    }
+    100% {
+        transform: translateX(-10px); /* Sola doğru 10 piksel hareket */
+    }
+}
+
+.testimonial-container {
+    margin-top: 1%;
+    width: 90%;
+    margin-left: 5%;
+    color: #ffffff; /* Yazı rengi */
+    font-size: 16px; /* Yazı boyutu */
+    line-height: 1; /* Satır yüksekliği */
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    position: relative; /* Container'ın göreceli konumu */
+    padding-top: 60px; /* İçerik ile avatar arasında yeterli boşluk bırakmak için avatar yüksekliği kadar padding-top ayarlayın */
+    height: calc(100% + 60px); /* Avatarın yukarı taşması durumunda içeriğin üst kısmını kapatmamak için containırın yüksekliğini artırın */
+}
+
+
+.testimonial-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.testimonial-container.active {
+    cursor: grabbing;
+}
+
+.testimonial {
+    min-width: 300px;
+    margin: 1%;
+    padding: 20px 20px 20px 30px; /* Resim alanı için soldan boşluk */
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-image: linear-gradient(to right top, #244646, #163c42, #0b313e, #082638, #0b1b30);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    position: relative; /* Resmin kutudan taşması için gerekli */
+    height: fit-content; /* İçeriğe göre yüksekliği ayarla */
+}
+
+.testimonial-avatar {
+    position: absolute;
+    top: -50px; /* Kutunun üstünden taşırmak için */
+    left: 38px; /* Kutunun solundan taşırmak için */
+    width: 80px; /* Daha büyük bir resim boyutu */
+    height: 80px; /* Daha büyük bir resim boyutu */
+    background-color: #fff; /* Arka plan beyaz */
+    border: 2px solid #ccc; /* Resmi çevreleyen bir sınır */
+    border-radius: 50%;
+    overflow: hidden; /* Resmin sınırlarını yuvarlak yapmak için */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: auto;
+}
+
+.testimonial-content {
+    margin-top: 20px;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 50px; /* Alt boşluk ekleyin, böylece quote resmi içeride kalır */
+}
+.testimonial-content p {
+    font-family: 'Montserrat', sans-serif; /* İtalik font ailesi */
+    font-style: italic; /* Paragrafların yatık olması */
+    padding-top: 10px; /* Yazıyı biraz aşağı almak için */
+    line-height: 0.4; /* Satır yüksekliğini istediğiniz değere ayarlayın */
+}
+.hasta-name {
+    font-size: 1.5em; /* Ad Soyad için daha büyük yazı boyutu */
+    margin: 0; /* Varsayılan boşluk kaldırıldı */
+    margin-bottom: 10px; /* Alt boşluk eklendi */
+}
+
+.meslek-name {
+    font-size: 1em; /* Hastalık Adı için daha küçük yazı boyutu */
+    margin: 0; /* Varsayılan boşluk kaldırıldı */
+    margin-bottom: 20px; /* Alt boşluk eklendi */
+    color: #8c8c8c; /* Gri renk tonu eklendi */
+}
+
+.testimonial-content .quote-icon {
+    position: absolute;
+    bottom: -4%;
+    right: 0;
+}
+
+.dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+
+/* Ekran genişliği 768 pikselden küçük olduğunda navbar button göster */
+@media (max-width: 768px) {
+
+    body.index-page .imageAna img{
+        max-width: 60%;
+        margin-top: 115%;
+        margin-left: 25%;
+    }
+    body.index-page .contentAna {
+        max-width: 100%;
+    }
+    body.index-page .contentAna h1 {
+        margin-top: 30%;
+        font-size: 70px;
+        margin-bottom: 20px;
+    }
+    body.index-page .contentAna p {
+        margin-top: 155%;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    #map {
+        width: 105%;
+        margin-left: 0%;
+        background-color: #ffffff; /* Haritanın arka plan rengi */
+    }
+    #selectCity {
+        margin-left: 30%;
+        margin-top: 1%;
+        width: 45%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        font-size: 16px;
+    }
+    .body-container img {
+        max-width: 105%;
+    }
+    .navbar-button {
+        display: block;
+    }
+
+    /* Nav linkleri varsayılan olarak gizli yap */
+    .nav-main {
+        display: none;
+    }
+
+    /* 'show' sınıfı eklendiğinde nav linkleri göster */
+    .nav-main.show {
+        display: block;
+    }
+    .testimonial-container{
+        margin-left: 10%;
+    }
+    .testimonial {
+        width: 80%; /* Testimonialın genişliğini ayarla */
+        margin-right: 10%; /* Testimonial containırları arasındaki boşluğu ayarla */
+    }
+    .testimonial-content p {
+        font-family: 'Montserrat', sans-serif; /* İtalik font ailesi */
+        font-style: italic; /* Paragrafların yatık olması */
+        padding-top: 10px; /* Yazıyı biraz aşağı almak için */
+        line-height: 1.5; /* Satır yüksekliğini istediğiniz değere ayarlayın */
+    }
+    
+}
+
+/* Ekran genişliği 769 pikselden büyük olduğunda nav linkler her zaman görünür */
+@media (min-width: 769px) {
+    .nav-main {
+        display: flex;
+    }
+}
+

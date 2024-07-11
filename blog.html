@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+    <title>Ortez ve Protez Bilgilendirme</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .testimonial-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .testimonial {
+            margin-top: 15%;
+            width: 44%; /* Container'ları yan yana yerleştirmek için genişliği ayarlayın */
+            margin-bottom: 2%;
+            padding: 20px 20px 20px 30px; /* Resim alanı için soldan boşluk */
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            background-image: linear-gradient(to right top, #244646, #163c42, #0b313e, #082638, #0b1b30);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative; /* Resmin kutudan taşması için gerekli */
+            height: fit-content; /* İçeriğe göre yüksekliği ayarla */
+        }
+
+        .testimonial-avatar {
+            position: absolute;
+            top: -50px; /* Kutunun üstünden taşırmak için */
+            left: 38px; /* Kutunun solundan taşırmak için */
+            width: 80px; /* Daha büyük bir resim boyutu */
+            height: 80px; /* Daha büyük bir resim boyutu */
+            background-color: #fff; /* Arka plan beyaz */
+            border: 2px solid #ccc; /* Resmi çevreleyen bir sınır */
+            border-radius: 50%;
+            overflow: hidden; /* Resmin sınırlarını yuvarlak yapmak için */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: auto;
+        }
+
+        .testimonial-content {
+            margin-top: 20px;
+            position: relative;
+            padding-top: 20px;
+            padding-bottom: 50px; /* Alt boşluk ekleyin, böylece quote resmi içeride kalır */
+        }
+
+        .testimonial-content p {
+            font-family: 'Montserrat', sans-serif; /* İtalik font ailesi */
+            font-style: italic; /* Paragrafların yatık olması */
+            padding-top: 10px; /* Yazıyı biraz aşağı almak için */
+            line-height: 1.4; /* Satır yüksekliğini istediğiniz değere ayarlayın */
+        }
+
+        .hasta-name {
+            font-size: 1.5em; /* Ad Soyad için daha büyük yazı boyutu */
+            margin: 0; /* Varsayılan boşluk kaldırıldı */
+            margin-bottom: 10px; /* Alt boşluk eklendi */
+        }
+
+        .meslek-name {
+            font-size: 1em; /* Hastalık Adı için daha küçük yazı boyutu */
+            margin: 0; /* Varsayılan boşluk kaldırıldı */
+            margin-bottom: 20px; /* Alt boşluk eklendi */
+            color: #8c8c8c; /* Gri renk tonu eklendi */
+        }
+
+        .testimonial-content .quote-icon {
+            position: absolute;
+            bottom: -4%;
+            right: 0;
+        }
+
+        .video-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #a9aeb5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .video-modal-content {
+            position: relative;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body class="index-page">
+    <header>
+        <button class="navbar-button">
+            <img src="Resimler/navigation-bar.png">
+        </button>
+        <nav class="nav-main">
+            <img src="resimler/prosthesis.png" alt="Logo">
+            <a href="index.html">Ana Sayfa</a>
+            <div id="protezhakkinda-container" style="position: relative;">
+                <a id="protezhakkinda" href="#">Protez Hakkında</a>
+                <div id="protez-options" class="dropdown-container">
+                    <a href="kol-protezi.html">Kol Protezi</a>
+                    <a href="bacak-protezi.html">Bacak Protezi</a>
+                </div>
+            </div>
+            <a href="blog.html">Hasta Hikayeleri ve Blog</a>
+            <a href="contact.html">İletişim ve Destek</a>
+            <a href="submit_info.html">Submit</a>
+            <a href="sanauygunprotez.html">Sana Uygun Protez</a>
+        </nav>
+        <nav class="nav-links">
+            <a href="register.html">Kayıt Ol</a>
+            <a href="login.html">Giriş Yap</a>
+        </nav>
+    </header>
+    <div class="navbar-container">
+        <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Protez Hakkında</a>
+            <a href="blog.html">Hasta Hikayeleri ve Blog</a>
+            <a href="contact.html">İletişim ve Destek</a>
+            <a href="submit_info.html">Submit</a>
+            <a href="sanauygunprotez.html">Sana Uygun Protez</a>
+        </nav>
+    </div>
+
+    <div class="testimonial-container" id="testimonialContainer">
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 1">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <a href="#" class="video-button" data-video="Resimler/protezvideo.mp4">Video İzle</a>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 2">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 2: Hizmet kalitesi harika!</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <a href="#" class="video-button" data-video="Resimler/protezvideo.mp4">Video İzle</a>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 3">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 3: Kesinlikle tavsiye ediyorum.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <a href="#" class="video-button" data-video="Resimler/protezvideo.mp4">Video İzle</a>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 4">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 4: Fiyatlar uygun, kalite yüksek.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <a href="#" class="video-button" data-video="Resimler/protezvideo.mp4">Video İzle</a>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 5">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 5: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <a href="#" class="video-button" data-video="Resimler/protezvideo.mp4">Video İzle</a>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 6">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 6: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <a href="#" class="video-button" data-video="Resimler/protezvideo.mp4">Video İzle</a>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 7">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 7: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <a href="#" class="video-button" data-video="Resimler/protezvideo.mp4">Video İzle</a>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+    </div>
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-modal-close">&times;</span>
+            <video id="modalVideo" width="100%" controls>
+                <source id="modalVideoSource" src="" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const videoButtons = document.querySelectorAll(".video-button");
+            const videoModal = document.getElementById("videoModal");
+            const modalVideo = document.getElementById("modalVideo");
+            const modalVideoSource = document.getElementById("modalVideoSource");
+            const videoModalClose = document.querySelector(".video-modal-close");
+    
+            videoButtons.forEach(button => {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const videoSrc = this.getAttribute("data-video");
+                    modalVideoSource.src = videoSrc;
+                    modalVideo.load();
+                    videoModal.style.display = "block";
+                });
+            });
+    
+            videoModalClose.addEventListener("click", function() {
+                videoModal.style.display = "none";
+                modalVideo.pause();
+            });
+    
+            window.addEventListener("click", function(event) {
+                if (event.target === videoModal) {
+                    videoModal.style.display = "none";
+                    modalVideo.pause();
+                }
+            });
+        });
+    </script>
+
+
+    <script src="navbar.js"></script>
+    <script src="altmenu.js"></script>
+    <script src="musteriYorumlari.js"></script>
+</body>
+</html>

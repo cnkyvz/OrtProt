@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+    <title>Ortez ve Protez Bilgilendirme</title>
+</head>
+<body class="index-page">
+    <header>
+        <button class="navbar-button">
+            <img src="Resimler/navigation-bar.png">
+        </button>
+        <nav class="nav-main">
+            <img src="resimler/prosthesis.png" alt="Logo">
+            <a href="index.html">Ana Sayfa</a>
+            <div id="protezhakkinda-container" style="position: relative;">
+                <a id="protezhakkinda" href="#">Protez Hakkında</a>
+                <div id="protez-options" class="dropdown-container">
+                    <a href="kol-protezi.html">Kol Protezi</a>
+                    <a href="bacak-protezi.html">Bacak Protezi</a>
+                </div>
+            </div>
+            <a href="blog.html">Hasta Hikayeleri ve Blog</a>
+            <a href="contact.html">İletişim ve Destek</a>
+            <a href="submit_info.html">Submit</a>
+            <a href="sanauygunprotez.html">Sana Uygun Protez</a>
+        </nav>
+        <nav class="nav-links">
+            <a href="register.html">Kayıt Ol</a>
+            <a href="login.html">Giriş Yap</a>
+        </nav>
+    </header>
+    <div class="navbar-container">
+        <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Protez Hakkında</a>
+            <a href="blog.html">Hasta Hikayeleri ve Blog</a>
+            <a href="contact.html">İletişim ve Destek</a>
+            <a href="submit_info.html">Submit</a>
+            <a href="sanauygunprotez.html">Sana Uygun Protez</a>
+        </nav>
+    </div>
+ 
+    <article class="article-2">
+        <div class="contentAna">
+            <h1>Protez Nedir?</h1>
+            <div class="typed-container">
+                <span class="js-typedjs" id="typed"></span>
+                <span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span>
+            </div>
+            <p>Protezler, vücuttaki eksik veya hasar görmüş bir uzvun yerini almak için tasarlanmış yapay cihazlardır. Bu cihazlar, genellikle fiziksel engellilik, yaralanma veya doğuştan gelen anomaliler gibi durumlarda kullanılır.</p>
+            <a href="#" id="detailsBtn" class="btn">Detayları Öğrenin</a>
+            <a href="#" id="videoBtn" class="btn video-btn">Videoyu İzleyin</a>
+        </div>
+        <div class="imageAna">
+            <img src="Resimler/protez1.jpg" alt="Protez Resmi">
+            <img src="Resimler/protez2.jpg" alt="Protez Resmi">
+            <img src="Resimler/protez3.jpg" alt="Protez Resmi">
+        </div>
+
+    </article>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <video controls width="100%">
+                <source src="Resimler/protezvideo.mp4" type="video/mp4">
+                Tarayıcınız bu videoyu desteklemiyor.
+            </video>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var options = {
+                strings: ["Güvenli", "Kolay", "Pratik", "Hızlı"],
+                typeSpeed: 60,
+                loop: true,
+                backSpeed: 25,
+                backDelay: 1500
+            };
+            var typed = new Typed('#typed', options);
+        });
+    </script>
+
+    
+     <div class="imageRobotKol">
+        <img src="Resimler/noktalar.png" alt="Noktalar Resmi" class="noktalarImage">
+        <img src="Resimler/robotkol.png" alt="RobotKol Resmi" class="robotKolImage">
+    </div> 
+
+
+    <div class="testimonial-container" id="testimonialContainer">
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 1">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 2">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 2: Hizmet kalitesi harika!</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 3">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 3: Kesinlikle tavsiye ediyorum.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 4">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 4: Fiyatlar uygun, kalite yüksek.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 5">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 5: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 6">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 6: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-avatar">
+                <img src="Resimler/Ekran Resmi 2024-05-29 23.38.19.svg" alt="Customer 7">
+            </div>
+            <div class="testimonial-content">
+                <h2 class="hasta-name">Ad Soyad</h2>
+                <h3 class="meslek-name">Hastalık Adı</h3>
+                <p>Müşteri yorumu 7: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <p>Müşteri yorumu 1: Ürün çok güzel, çok memnun kaldım.</p>
+                <img class="quote-icon" src="Resimler/quote.png" alt="Quote">
+            </div>
+        </div>
+    </div>
+    <div class="dots" id="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+
+    <article class="article-3">
+        <div class="contenAna2">
+            <h1>Protezler: Yaşamı Kolaylaştıran Yenilikçi Çözümler</h1>
+        <p>
+            Günümüzde, protezler yaşam kalitesini artıran ve yaşamı kolaylaştıran önemli medikal cihazlardır. Birçok insan için, bir uzvunu kaybetmek ciddi fiziksel ve duygusal zorluklara neden olabilir. Ancak, modern protez teknolojileri sayesinde, bu zorluklar azaltılabilir ve hatta bazı durumlarda ortadan kaldırılabilir.
+        </p>
+        <p>
+            Protez Nedir ve Neden Kullanılır?
+            Protez, bir uzvun kaybı sonucu eksik olan vücut parçasını yerine koymak veya desteklemek için kullanılan yapay bir cihazdır. Uzuv kaybı genellikle doğal bir afet, kazalar, ameliyatlar veya doğuştan olabilir. Protezler, kaybedilen uzvun işlevselliğini geri kazanmaya veya en azından günlük yaşamda işlevsel bir hareketlilik sağlamaya yardımcı olabilir.
+        </p>
+        <p>
+            Protez Çeşitleri ve Kullanım Alanları
+            Protezler, birçok farklı türde gelir ve kullanım alanlarına göre çeşitlilik gösterebilir. İşte bazı yaygın protez türleri:
+            Ekstremite Protezleri: Kol, bacak, el veya ayak gibi ekstremitelerin kaybı durumunda kullanılır. Bu protezler, kullanıcının hareket etmesine ve günlük aktivitelerini sürdürmesine yardımcı olur.
+        </p>
+        <!-- Diğer paragrafları ve içeriği buraya ekleyin -->
+        </div>
+        
+    </article>
+    
+    
+    
+    <div id="map"></div>
+
+    <select id="selectCity">
+        <option disabled selected>Şehir Seçiniz</option>
+        <!-- JavaScript ile şehirler dinamik olarak oluşturulacak -->
+    </select>
+    
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script>
+        const map = L.map('map'); 
+// Haritayı başlatır
+
+map.setView([39.9208, 32.8541], 6); 
+// Türkiye'nin başlangıç koordinatlarını ve yakınlaştırma seviyesini ayarlar
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map); 
+// Harita veri kaynağını ve haritayla ilişkilendirir
+
+let marker, marker2, marker3, circle, zoomed; // global olarak marker, circle ve zoomed değişkenlerini tanımladık
+
+function success(pos) {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    const accuracy = pos.coords.accuracy;
+
+    if (marker) {
+        map.removeLayer(marker);
+        map.removeLayer(circle);
+    }
+    // Removes any existing marker and circule (new ones about to be set)
+
+    marker = L.marker([lat, lng]).addTo(map);
+    circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+    // Adds marker to the map and a circle for accuracy
+
+    if (!zoomed) {
+        zoomed = map.fitBounds(circle.getBounds()); 
+    }
+    // Set zoom to boundaries of accuracy circle
+
+    map.setView([lat, lng]);
+    // Set map focus to current user position
+}
+
+function error(err) {
+    if (err.code === 1) {
+        alert("Please allow geolocation access");
+    } else {
+        alert("Cannot get current location");
+    }
+}
+
+navigator.geolocation.watchPosition(success, error); // Konumu izlemek için bu satırı ekledik
+
+
+        // Türkiye'nin illerini ve il merkezlerini içeren bir nesne tanımla
+        const turkishCities = {
+            "Adana": [37.0, 35.3213],
+            "Adıyaman": [37.7648, 38.2763],
+            "Afyonkarahisar": [38.7560, 30.5387],
+            "Ağrı": [39.7217, 43.0567],
+            "Amasya": [40.6533, 35.8338],
+            "Ankara": [39.9334, 32.8597],
+            "Antalya": [36.8969, 30.7133],
+            "Artvin": [41.1828, 41.8183],
+            "Aydın": [37.8560, 27.8416],
+            "Balıkesir": [39.6484, 27.8826],
+            "Bartın": [41.5811, 32.4610],
+            "Batman": [37.8812, 41.1351],
+            "Bayburt": [40.2552, 40.2249],
+            "Bilecik": [40.0567, 29.9833],
+            "Bingöl": [38.8846, 40.4983],
+            "Bitlis": [38.3938, 42.1239],
+            "Bolu": [40.5760, 31.5788],
+            "Burdur": [37.4613, 30.0575],
+            "Bursa": [40.1826, 29.0670],
+            "Çanakkale": [40.1553, 26.4142],
+            "Çankırı": [40.6013, 33.6131],
+            "Çorum": [40.5489, 34.9530],
+            "Denizli": [37.7742, 29.0872],
+            "Diyarbakır": [37.9144, 40.2306],
+            "Düzce": [40.8438, 31.1565],
+            "Edirne": [41.6772, 26.5550],
+            "Elazığ": [38.6743, 39.2237],
+            "Erzincan": [39.7500, 39.5000],
+            "Erzurum": [39.9208, 41.2745],
+            "Eskişehir": [39.7667, 30.5256],
+            "Gaziantep": [37.0662, 37.3833],
+            "Giresun": [40.9128, 38.3895],
+            "Gümüşhane": [40.4603, 39.4822],
+            "Hakkari": [37.5744, 43.7408],
+            "Hatay": [36.4018, 36.3498],
+            "Iğdır": [39.9235, 44.0450],
+            "Isparta": [37.7648, 30.5560],
+            "İstanbul": [41.0082, 28.9784],
+            "İzmir": [38.4192, 27.1287],
+            "Kahramanmaraş": [37.5810, 36.9370],
+            "Karabük": [41.2000, 32.6333],
+            "Karaman": [37.1811, 33.2150],
+            "Kars": [40.5927, 43.0778],
+            "Kastamonu": [41.3887, 33.7827],
+            "Kayseri": [38.7333, 35.4833],
+            "Kırıkkale": [39.8468, 33.5153],
+            "Kırklareli": [41.7333, 27.2167],
+            "Kırşehir": [39.1417, 34.1638],
+            "Kilis": [36.7184, 37.1217],
+            "Kocaeli": [40.7650, 29.9458],
+            "Konya": [37.8714, 32.4860],
+            "Kütahya": [39.4167, 29.9833],
+            "Malatya": [38.3552, 38.3095],
+            "Manisa": [38.6191, 27.4289],
+            "Mardin": [37.3122, 40.7351],
+            "Mersin": [36.8000, 34.6333],
+            "Muğla": [37.1649, 28.3672],
+            "Muş": [38.7433, 41.5065],
+            "Nevşehir": [38.6939, 34.6857],
+            "Niğde": [37.9667, 34.6833],
+            "Ordu": [40.9839, 37.8764],
+            "Osmaniye": [37.2500, 36.2500],
+            "Rize": [41.0201, 40.5234],
+            "Sakarya": [40.7500, 30.3833],
+            "Samsun": [41.2867, 36.3300],
+            "Siirt": [37.9333, 41.9500],
+            "Sinop": [42.0264, 35.1553],
+            "Sivas": [39.7477, 37.0179],
+            "Şanlıurfa": [37.1671, 38.7939],
+            "Şırnak": [37.5139, 42.4604],
+            "Tekirdağ": [40.9833, 27.5167],
+            "Tokat": [40.3167, 36.5500],
+            "Trabzon": [41.0050, 39.7269],
+            "Tunceli": [39.1088, 39.5473],
+            "Uşak": [38.6823, 29.4082],
+            "Van": [38.4924, 43.3837],
+            "Yalova": [40.6500, 29.2667],
+            "Yozgat": [39.8191, 34.8147],
+            "Zonguldak": [41.4564, 31.7987]
+        };
+
+        // Şehirleri seçim kutusuna doldur
+        const selectCity = document.getElementById('selectCity');
+        for (const city in turkishCities) {
+            const option = document.createElement('option');
+            option.text = city;
+            selectCity.add(option);
+        }
+
+        // Şehir seçimi ve koordinatlarına yakınlaştırma işlemini ele alacak fonksiyon
+        selectCity.addEventListener('change', function() {
+            const selectedCity = this.value;
+            const coordinates = turkishCities[selectedCity];
+            if (coordinates) {
+                map.setView(coordinates, 10);
+            }
+        });
+    </script>
+
+
+    <div class="kart-container">
+        <div class="kart">
+            <div class="kart-on">
+                <img src="Resimler/luxmed.png" alt="Fotoğraf">
+            </div>
+            <div class="kart-arka">
+                <div class="kart-yazi">
+                    <h2>Adres</h2>
+                    <p>Topkapı Mahallesi, Turgut Özal Millet Cd No:160, 34093 Fatih/İstanbul (Çapa Hastanesi yanı)</p>
+                </div>
+            </div>
+        </div>
+        <div class="kart">
+            <div class="kart-on">
+                <img src="Resimler/ottobock1.svg" alt="Fotoğraf" style="background-color: white; margin-left: 0%; margin-top: 0%; width: 200px; height: 300px; perspective: 1000px; position: relative;">
+            </div>
+            <div class="kart-arka" style="background-color: white;">
+                <div class="kart-yazi" style="color: black;">
+                    <h2>Adres</h2>
+                    <p>Topkapı Mahallesi, Turgut Özal Millet Cd No:160, 34093 Fatih/İstanbul (Çapa Hastanesi yanı)</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="kart">
+            <div class="kart-on">
+                <img src="Resimler/luxmed.png" alt="Fotoğraf">
+            </div>
+            <div class="kart-arka">
+                <div class="kart-yazi">
+                    <h2>Adres</h2>
+                    <p>Topkapı Mahallesi, Turgut Özal Millet Cd No:160, 34093 Fatih/İstanbul (Çapa Hastanesi yanı)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="imagefor.js"></script>
+    <script src="navbar.js"></script>
+    <script src="altmenu.js"></script>
+    <script src="musteriYorumlari.js"></script>
+</body>
+</html>
